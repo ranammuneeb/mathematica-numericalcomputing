@@ -1,0 +1,204 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      6444,        196]
+NotebookOptionsPosition[      5489,        174]
+NotebookOutlinePosition[      5890,        190]
+CellTagsIndexPosition[      5847,        187]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"f", "[", "x_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{"x", "^", "6"}], "-", 
+     RowBox[{"x", "^", "4"}], "-", 
+     RowBox[{"x", "^", "3"}], "-", "1"}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{"f", "[", "0", "]"}], "\n", 
+ RowBox[{"f", "[", "1", "]"}], "\n", 
+ RowBox[{
+  RowBox[{"f", "[", "2", "]"}], "\[IndentingNewLine]", 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"b", "=", "2"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"tolerance", "=", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "6"}]}]}], ";"}], "\n", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"f", "[", "a", "]"}], " ", 
+       RowBox[{"f", "[", "b", "]"}]}], ">", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+      "Print", "[", 
+       "\"\<The Bisection method cannot be applied, as f(a) and f(b) have the \
+same sign.\>\"", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"i", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"j", "=", "100"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"c", "=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"a", "+", "b"}], ")"}], "/", "2"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"While", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Abs", "[", 
+       RowBox[{"f", "[", "c", "]"}], "]"}], ">", "tolerance"}], ",", 
+     RowBox[{
+      RowBox[{"i", "=", 
+       RowBox[{"i", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"c", "=", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"a", "+", "b"}], ")"}], "/", "2"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"f", "[", "c", "]"}], "*", 
+          RowBox[{"f", "[", "a", "]"}]}], "<", "0"}], ",", 
+        RowBox[{"b", "=", "c"}], ",", 
+        RowBox[{"a", "=", "c"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"i", ">", "j"}], ",", 
+        RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], "]"}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"bisectionRoot", "=", "c"}], ";"}], "\[IndentingNewLine]", 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<Bisection Method Root:\>\"", "]"}], ";"}], "\n", 
+ RowBox[{"bisectionRoot", "\n", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"exactRoot", "=", 
+    RowBox[{"FindRoot", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"f", "[", "x", "]"}], "==", "0"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "1.5"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"bisectionRootApproximation", "=", 
+   RowBox[{"N", "[", "bisectionRoot", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"exactRootApproximation", "=", 
+    RowBox[{"N", "[", 
+     RowBox[{"x", "/.", " ", "exactRoot"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"bisectionRootApproximation", ",", "exactRootApproximation"}], 
+   "}"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.939008086710394*^9, 3.939008154859581*^9}, 
+   3.939008195830965*^9, {3.9390092794576015`*^9, 3.939009279582573*^9}},
+ CellLabel->
+  "In[470]:=",ExpressionUUID->"ae5ad022-ceb2-424a-922d-0ce3ccb6e477"],
+
+Cell[BoxData[
+ RowBox[{"-", "1"}]], "Output",
+ CellChangeTimes->{3.9390093225174313`*^9},
+ CellLabel->
+  "Out[471]=",ExpressionUUID->"80d40a00-c793-bf4e-8c19-59346d42a504"],
+
+Cell[BoxData[
+ RowBox[{"-", "2"}]], "Output",
+ CellChangeTimes->{3.9390093225174313`*^9},
+ CellLabel->
+  "Out[472]=",ExpressionUUID->"46a9126b-e26d-704f-ace6-65d322aafd50"],
+
+Cell[BoxData["39"], "Output",
+ CellChangeTimes->{3.9390093225330563`*^9},
+ CellLabel->
+  "Out[473]=",ExpressionUUID->"82bd98fb-b9a4-9b42-9e16-872182322ef0"],
+
+Cell[BoxData["\<\"Bisection Method Root:\"\>"], "Print",
+ CellChangeTimes->{3.9390093225330563`*^9},
+ CellLabel->
+  "During evaluation of \
+In[470]:=",ExpressionUUID->"edcc03b4-b4de-7549-a962-3c807bec2902"],
+
+Cell[BoxData[
+ FractionBox["2943567", "2097152"]], "Output",
+ CellChangeTimes->{3.9390093225330563`*^9},
+ CellLabel->
+  "Out[484]=",ExpressionUUID->"b050335c-d5e2-9840-b7e9-16658bd78abd"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1.403602123260498`", ",", "1.4036021248742168`"}], "}"}]], "Output",
+ CellChangeTimes->{3.9390093225486755`*^9},
+ CellLabel->
+  "Out[488]=",ExpressionUUID->"a84015b7-217c-b541-a07f-15760af05e7a"]
+}, Open  ]]
+},
+WindowSize->{1141.2, 579.6},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f9f5cadc-7c52-f44a-b443-88de67434c1c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 3751, 113, 865, "Input",ExpressionUUID->"ae5ad022-ceb2-424a-922d-0ce3ccb6e477"],
+Cell[4330, 137, 172, 4, 32, "Output",ExpressionUUID->"80d40a00-c793-bf4e-8c19-59346d42a504"],
+Cell[4505, 143, 172, 4, 32, "Output",ExpressionUUID->"46a9126b-e26d-704f-ace6-65d322aafd50"],
+Cell[4680, 149, 156, 3, 32, "Output",ExpressionUUID->"82bd98fb-b9a4-9b42-9e16-872182322ef0"],
+Cell[4839, 154, 206, 4, 22, "Print",ExpressionUUID->"edcc03b4-b4de-7549-a962-3c807bec2902"],
+Cell[5048, 160, 187, 4, 46, "Output",ExpressionUUID->"b050335c-d5e2-9840-b7e9-16658bd78abd"],
+Cell[5238, 166, 235, 5, 32, "Output",ExpressionUUID->"a84015b7-217c-b541-a07f-15760af05e7a"]
+}, Open  ]]
+}
+]
+*)
+
